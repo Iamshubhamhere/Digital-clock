@@ -1,30 +1,27 @@
 
 'use strict';
 
+const set = document.querySelector('.set');
+const clear = document.querySelector('.clear');
+const input = document.querySelector('.input');
+function playAlarm() {
+    const audio = new Audio('./assets/audio/Alarm.mp3');
+    audio.play();
+  }
 
+ function clock() {
+	const clock = document.querySelector('.clock')
+	const now = new Date();
 
-function getClock() {
-    const today = new Date();
-    let minute = today.getMinutes().toString().padStart(2, '0');
-    let sec = today.getSeconds().toString().padStart(2, '0');
-    let hours = today.getHours().toString().padStart(2, '0');
-
-    let session = document.getElementById('sessions')
-
-    if ( hours >= 12) {
-        session.innerHTML = 'PM'
-    } else {
-        session.innerHTML = 'AM'
-    }
-
-    if (hours > 12) {
-        hours = hours - 12;
-    }
-
-    document.getElementById('hrs').innerHTML = hours;
-    document.getElementById('minutes').innerHTML = minute;
-    document.getElementById('seconds').innerHTML = sec;
-
+    let hours = now.getHours();
+	let minutes = now.getMinutes();
+	let seconds = now.getSeconds();
+    const time = `${hours.toString().padStart(2, '0')}:
+    ${minutes.toString().padStart(2, '0')}:
+    ${seconds.toString().padStart(2, '0')}`;
+	clock.textContent = time;
 }
 
-setInterval(getClock, 10)
+setInterval(clock, 1000);
+
+

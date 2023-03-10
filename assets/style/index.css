@@ -27,12 +27,21 @@ body {
     place-content: center;
     height: 100vh;
 }
+h1 {
+  font-size: 50px;
+  text-transform: uppercase;
+  color:var(--app-white);
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: 0.2px;
+}
 .clock {
-  display: flex;
-  justify-content: center;
+ color: var(--app-white);
+ font-size: 80px;
+ text-align: center;
  
 }
-.clock span {
+.clock p {
     color: #fff;
     font-size: 80px;
 }
@@ -46,14 +55,31 @@ body {
   justify-content: center;
  
 }
-
+.alarm img {
+  height: 20px;
+  margin-top: 7px;
+}
+.alarm p{
+  height: 35px;
+  width: 120px;
+  background-color: rgb(255 255 255 / 0.1);
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 5px;
+  text-align: center;
+  line-height: 35px;
+  font-size: 22px;
+  color: var(--app-white);
+}
+img + p{
+  margin-left: 10px;
+}
 
 section{
   width:500px;
   height: 300px; 
 
 }
-.button {
+form {
   display: flex;
   justify-content: center;
   padding: 20px;
@@ -66,8 +92,10 @@ input[type=text] {
   background-color: rgb(255 255 255 / 0.1);
   border-radius: 5px;
   font-size: 17px;
-  color: #fff;
+  color: var(--app-white);
   text-align: left;
+  text-align: center;
+  line-height: 35px;
  
 }
 input + input {

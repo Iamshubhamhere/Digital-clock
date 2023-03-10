@@ -16,26 +16,27 @@
   </head>
   <body>
     <main>
-      <section class="outer">
-        <div class="container">
+      <div>
+        <h1>Digital Alarm Clock</h1>
+      </div>
+      <section class=" container">
+        <div class="outer">
+          
             <div class="center">
                 <div>
-                    <div class="clock">
-                        <span id="hrs">00</span>
-                        <span>:</span>
-                        <span id="minutes">00</span>
-                        <span>:</span>
-                        <span id="seconds">00</span>
-                       
+                    <div class="Heading">
+                        <p class="clock"></p>
                       </div>
                       <div class="alarm">
-                        <input type="text" class="output"/>
+                        <img src="./assets/image/alarm.png" alt="clock">
+                        <p class="input">00:00</p>
                       </div>
                     <div class="button">
-                        <input type="text" class="clock"/>
+                      <form>
+                        <input type="text" class="clock" placeholder="HH:MM"/>
                         <input type="button" class="set" value="Set" />
                         <input type="button" class="clear" value="Clear" />
-                        
+                      </form>
                     </div>
                 </div>
             </div>
