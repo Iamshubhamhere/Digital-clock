@@ -22,7 +22,7 @@
 }
 
 body {
-    background-color: rgb(11, 11, 47);
+    background-color: var(--app-dark-bg);
     display: grid;
     place-content: center;
     height: 100vh;
