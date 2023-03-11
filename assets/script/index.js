@@ -4,7 +4,7 @@ const set = document.querySelector(".set");
 
 let alarmTime = null;
 
-const audio = new Audio("./assets/audio/Alarm.mp3");
+const audio = new Audio("./assets/audio/ALarmsound.mp3");
 audio.type = "audio/mp3";
 
 function ringAlarm() {
