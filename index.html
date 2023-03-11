@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale" >
-    <meta name="author" content=" Shubham">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale" />
+    <meta name="author" content=" Shubham" />
     <title>Digital Clock</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Nunito&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="./assets/image/favicon copy.png" type="image/x-icon">
-    <link rel="stylesheet" href="./assets/style/index.css" media="all">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="./assets/image/favicon copy.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./assets/style/index.css" media="all" />
     <script src="./assets/script/index.js" defer></script>
   </head>
   <body>
@@ -19,27 +29,30 @@
       <div>
         <h1>Digital Alarm Clock</h1>
       </div>
-      <section class=" container">
+      <section class="container">
         <div class="outer">
-          
-            <div class="center">
-                <div>
-                    <div class="Heading">
-                        <p class="clock"></p>
-                      </div>
-                      <div class="alarm">
-                        <img src="./assets/image/alarm.png" alt="clock">
-                        <p id="output"></p>
-                      </div>
-                    <div class="button">
-                      <form>
-                        <input type="text" class="input" placeholder="HH:MM"/>
-                        <input type="button" class="set" value="Set" />
-                        <input type="button" class="clear" value="Clear" />
-                      </form>
-                    </div>
-                </div>
+          <div class="center">
+            <div>
+              <div class="Heading">
+                <p id="alarm-heading" class="clock"></p>
+              </div>
+              <div class="alarm">
+                <img
+                  src="./assets/image/alarm.png"
+                  id="alarm-img"
+                  alt="clock"
+                />
+                <p id="output"></p>
+              </div>
+              <div class="button">
+                <form class="form">
+                  <input type="text" class="input" placeholder="HH:MM" />
+                  <input type="submit" class="set" value="Set" />
+                  <input type="reset" class="clear" value="Clear" />
+                </form>
+              </div>
             </div>
+          </div>
         </div>
       </section>
     </main>

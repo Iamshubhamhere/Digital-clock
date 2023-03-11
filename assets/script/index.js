@@ -1,84 +1,68 @@
+"use strict";
 
-'use strict';
+const set = document.querySelector(".set");
 
-const set = document.querySelector('.set');
-const clear = document.querySelector('.clear');
-const input = document.querySelector('.input');
-const alarm = document.getElementById('#output');
-let alarmTimeout;
+let alarmTime = null;
 
-function playAlarm() {
-    const audio = new Audio('./assets/audio/Alarm.mp3');
+const audio = new Audio("./assets/audio/Alarm.mp3");
+audio.type = "audio/mp3";
+
+function ringAlarm() {
+  // code to ring the alarm
+  document.getElementById("alarm-img").classList.add("animate");
+  document.getElementById("alarm-heading").style.color = "#ff3c57";
+}
+
+function stopAlarm() {
+  // code to stop the alarm
+  document.getElementById("alarm-img").classList.remove("animate");
+  document.getElementById("alarm-heading").style.color = "";
+}
+
+function clock() {
+  const clock = document.querySelector(".clock");
+  const now = new Date();
+
+  let hours = now.getHours().toString().padStart(2, "0");
+  let minutes = now.getMinutes().toString().padStart(2, "0");
+  let seconds = now.getSeconds().toString().padStart(2, "0");
+  const time = `${hours}:${minutes}:${seconds}`;
+  clock.textContent = time;
+  if (alarmTime === `${hours}:${minutes}`) {
     audio.play();
+    ringAlarm();
   }
-
- function clock() {
-	const clock = document.querySelector('.clock')
-	const now = new Date();
-
-    let hours = now.getHours().toString().padStart(2, '0');
-	let minutes = now.getMinutes().toString().padStart(2, '0');
-	let seconds = now.getSeconds().toString().padStart(2, '0');
-    const time = `${hours}:${minutes}:${seconds}`;
-	clock.textContent = time;
 }
 
 setInterval(clock, 1000);
 
-
-set.addEventListener("click", function () {
-   
-    const validTime = /^([0-1]?[0-9]|2[0-3]):([0-5][0-9])$/;
-    const currentTime = clock.innerText.slice(0, -3);
-
-    if (input.value == currentTime) {
-        alarm.innerText = "Alarm can't be set to current time";
-        
-    } else if (validTime.test(timeInp.value)) {
-        alarm.innerText = input.value;
-    } else {
-        alarm.innerText = 'Please input a valid 24h time';
-    };
-    // const timeRegex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
-
-    // if (!timeRegex.test(inputmain)) {
-    //   alert("Please enter a valid time in HH:MM format.");
-    //   return;
-    // }
-  
-    // const alarmDate = new Date(time.toDateString() + " " + inputmain);
-    
-    // // Check if alarm time has already passed today
-    // if (alarmDate.getTime() < time.getTime()) {
-    //   alarmDate.setDate(alarmDate.getDate() + 1);
-    // }
-    
-    // // Calculate time until alarm goes off
-    // const timeUntilAlarm = alarmDate.getTime() - time.getTime();
-    
-    // // Set the alarm
-    // alarmTimeout = setTimeout(function() {
-    //   alert("Wake up!");
-    // }, timeUntilAlarm);
-    
-    // // Display confirmation message
-    // alert("Alarm set for " + inputmain + ".");
-    
-    // // Clear input field
-    // inputmain.value = "";
+document.querySelector(".form").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const alarmTimeInput = document.querySelector(".input");
+  const alarmTimeDisplay = document.querySelector("#output");
+  const inputRegex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
+  if (inputRegex.test(alarmTimeInput.value)) {
+    alarmTime = alarmTimeInput.value;
+    alarmTimeDisplay.textContent = alarmTime;
+    alarmTimeInput.value = "";
+  } else {
+    alert("Please enter a valid time in HH:MM format.");
+    alarmTimeInput.value = "";
+  }
 });
 
+document.querySelector(".form").addEventListener("reset", function (event) {
+  alarmTime = null;
+  document.querySelector("#output").textContent = "";
+  audio.pause();
+  stopAlarm();
+  audio.currentTime = 0;
+  document.getElementById("alarm-img").classList.remove("animate");
+});
 
-
-  
-  clear.addEventListener("click", function() {
-    // Clear the timeout and display a message
-    clearTimeout(alarmTimeout);
-    input.value = " ";
-    alert("Alarm cleared.");
-    
-  });
-  
-
-
-
+clear.addEventListener("click", function () {
+  // Clear the timeout and display a message
+  clearTimeout(alarmTimeout);
+  input.value = " ";
+  alert("Alarm cleared.");
+});
